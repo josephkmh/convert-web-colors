@@ -212,8 +212,9 @@ colorConverter.prototype = {
     return allColors;
   },
   getReadableTextColor(background) {
+    const s = this.cleanHsl(background, { returnArray: true })[1];
     const l = this.cleanHsl(background, { returnArray: true })[2];
-    if (l < 50) {
+    if (l + s < 125 && l < 50) {
       return 'hsl(0, 0%, 90%)';
     }
     return 'hsl(0, 0%, 0%)';
