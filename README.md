@@ -9,7 +9,7 @@ Just provide a string or array in one of the supported formats:
 ```javascript
 var converter = require('convert-web-colors');
 
-var colors = converter.convert('rgba(120,113,54)'); // converter.convert([120,113,54]) would return the same result
+var colors = converter.convert('rgb(120,113,54)'); // converter.convert([120,113,54]) would return the same result
 
 var rgba = colors.rgba; // rgba(120, 113, 54, 1)
 var rgb  = colors.rgb;  // rgb(120, 113, 54)
@@ -27,7 +27,7 @@ By default, an object containing color values as strings will be returned. If yo
 ```javascript
 var converter = require('convert-web-colors', { returnArrays: true });
 
-var colors = converter.convert('rgba(120,113,54)');
+var colors = converter.convert('rgb(120,113,54)');
 
 var rgb  = colors.rgb;  // [120, 113, 54]
 var rgba = colors.rgba; // [120, 113, 54, 1]
