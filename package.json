@@ -1,6 +1,6 @@
 {
   "name": "convert-web-colors",
-  "version": "1.0.7",
+  "version": "1.0.8",
   "description": "Convert between web color formats: rgb(a), hsl(a) and hexadecimal (6 and 8 digit)",
   "main": "index.js",
   "scripts": {
