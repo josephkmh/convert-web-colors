@@ -25,9 +25,9 @@ var hex  = colors.hex;  // #787136
 By default, an object containing color values as strings will be returned. If you want to receive an array of values instead, pass in an object as the second parameter with a property: <code>returnArrays: true;</code>
 
 ```javascript
-var converter = require('convert-web-colors', { returnArrays: true });
+var converter = require('convert-web-colors');
 
-var colors = converter.convert('rgb(120,113,54)');
+var colors = converter.convert('rgb(120,113,54)', { returnArrays: true });
 
 var rgb  = colors.rgb;  // [120, 113, 54]
 var rgba = colors.rgba; // [120, 113, 54, 1]
