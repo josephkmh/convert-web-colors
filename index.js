@@ -459,10 +459,10 @@ colorConverter.prototype = {
     if (typeofInput !== 'string') throw new TypeError(`identifyString() expects a string. ${typeofInput} given instead.`);
     const string = rawInput.replace(' ', '');
     const parts = string.replace(/\(|\)/g, '').split(',');
-    if (string.indexOf('rgba(') !== -1 && parts.length === 4) return 'rgba';
-    if (string.indexOf('rgb(') !== -1 && parts.length === 3) return 'rgb';
-    if (string.indexOf('hsla(') !== -1 && parts.length === 4) return 'hsla';
-    if (string.indexOf('hsl(') !== -1 && parts.length === 3) return 'hsl';
+    if (string.indexOf('rgba') !== -1 && parts.length === 4) return 'rgba';
+    if (string.indexOf('rgb') !== -1 && parts.length === 3) return 'rgb';
+    if (string.indexOf('hsla') !== -1 && parts.length === 4) return 'hsla';
+    if (string.indexOf('hsl') !== -1 && parts.length === 3) return 'hsl';
     if (string.indexOf('#') !== -1 && (string.length === 7 || string.length === 4)) return 'hex';
     if ((string.length === 6 || string.length === 3) && string.indexOf(',') === -1) return 'hex';
     if (string.indexOf('#') !== -1 && (string.length === 9 || string.length === 5)) return 'hexa';
