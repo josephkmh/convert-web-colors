@@ -16,7 +16,7 @@ colorConverter.prototype = {
     }
   },
   cleanHex(input, { leadingHash = false } = {}) {
-    const hex = input.replace('#', '').toUpperCase();
+    const hex = input.replace(/#|\s/g, '').toUpperCase();
     const allowed = '0123456789ABCDEF';
     for (let i = 0; i < hex.length; i += 1) {
       if (allowed.indexOf(hex[i]) < 0) throw new TypeError(`Expecting hexadecimal digits to be 0-9 or A-F, "${hex[i]}" is not valid.`);
@@ -34,7 +34,7 @@ colorConverter.prototype = {
     return hex;
   },
   cleanHexa(input, { leadingHash = false } = {}) {
-    const hex = input.replace('#', '').toUpperCase();
+    const hex = input.replace(/#|\s/g, '').toUpperCase();
     const allowed = '0123456789ABCDEF';
     for (let i = 0; i < hex.length; i += 1) {
       if (allowed.indexOf(hex[i]) < 0) throw new TypeError(`Expecting hexadecimal digits to be 0-9 or A-F, "${hex[i]}" is not valid.`);

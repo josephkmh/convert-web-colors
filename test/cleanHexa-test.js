@@ -10,4 +10,8 @@ describe('cleanHexa', () => {
   it('should turn a 4 digit hexa string into a 8 digit one', () => {
     expect(converter.cleanHexa('#E4F3')).to.equal('EE44FF33');
   });
+  it('should remove spaces from hexa strings', () => {
+    expect(converter.cleanHexa(' #E4F3')).to.equal('EE44FF33');
+    expect(converter.cleanHexa(' #AAAA ')).to.equal('AAAAAAAA');
+  });
 });

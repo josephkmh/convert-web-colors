@@ -10,4 +10,9 @@ describe('cleanHex', () => {
   it('should turn a 3 digit hex string into a 6 digit one', () => {
     expect(converter.cleanHex('#E4F')).to.equal('EE44FF');
   });
+  it('should remove spaces from hex strings', () => {
+    expect(converter.cleanHex(' #E4F')).to.equal('EE44FF');
+    expect(converter.cleanHex(' #E4F ')).to.equal('EE44FF');
+    expect(converter.cleanHex('#E4F ')).to.equal('EE44FF');
+  });
 });
