@@ -41,6 +41,9 @@ describe('identifyString', () => {
   it('should identify a hex string without leading hash', () => {
     expect(converter.identifyString('ffffff')).to.equal('hex');
   });
+  it('should identify a 3-decimal hex string with leading spaces', () => {
+    expect(converter.identifyString('  #fff')).to.equal('hex');
+  });
 
   // HEXA
   it('should identify a 8-decimal hex string input with leading hash', () => {

@@ -458,7 +458,7 @@ ColorConverter.prototype = {
   identifyString(rawInput) {
     const typeofInput = typeof rawInput;
     if (typeofInput !== 'string') throw new TypeError(`identifyString() expects a string. ${typeofInput} given instead.`);
-    const string = rawInput.replace(' ', '').toLowerCase();
+    const string = rawInput.replace(/\s/g, '').toLowerCase();
     const parts = string.replace(/\(|\)/g, '').split(',');
     if (string.indexOf('rgba') !== -1 && parts.length === 4) return 'rgba';
     if (string.indexOf('rgb') !== -1 && parts.length === 3) return 'rgb';
