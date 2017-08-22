@@ -1,0 +1,7 @@
+{
+    "rules": {
+        "max-len": 0,
+        "no-bitwise": 0
+    },
+    "extends": "airbnb-base"
+}
