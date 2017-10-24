@@ -1,3 +1,5 @@
+See it in action: [colorconverter.io](https://colorconverter.io)
+
 convert-web-colors is a web color conversion library for JavaScript and node. It supports conversion between rgb, hsl and hex strings, both with and without alpha channels (transparency).
 
 # Install
