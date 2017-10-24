@@ -1,8 +1,8 @@
-function colorConverter() {
+function ColorConverter() {
 
 }
 
-colorConverter.prototype = {
+ColorConverter.prototype = {
   cleanAnyColor(input) {
     const type = this.identifyString(input);
     switch (type) {
@@ -54,9 +54,9 @@ colorConverter.prototype = {
   cleanRgb(rawInput, { returnArray = false } = {}) {
     let input = Array.isArray(rawInput) ? rawInput.toString() : rawInput;
     input = input
-              .replace(/\s/g, '')
-              .replace(/r|g|b|a|\(|\)/g, '')
-              .split(',');
+      .toLowerCase()
+      .replace(/r|g|b|a|\(|\)|:|;|\s/g, '')
+      .split(',');
     if (input.length === 3) {
       const rgb = input.map((v) => {
         if (v <= 255 && v >= 0) {
@@ -72,9 +72,9 @@ colorConverter.prototype = {
   cleanRgba(rawInput, { returnArray = false } = {}) {
     let input = Array.isArray(rawInput) ? rawInput.toString() : rawInput;
     input = input
-              .replace(/\s/g, '')
-              .replace(/rgba|rgb|\(|\)/g, '')
-              .split(',');
+      .toLowerCase()
+      .replace(/r|g|b|a|\(|\)|:|;|\s/g, '')
+      .split(',');
     if (input.length === 4) {
       const rgba = input.map((v, i) => {
         if (i <= 2 && v <= 255 && v >= 0) {
@@ -94,9 +94,9 @@ colorConverter.prototype = {
   cleanHsl(rawInput, { returnArray = false } = {}) {
     let input = Array.isArray(rawInput) ? rawInput.toString() : rawInput;
     input = input
-              .replace(/\s/g, '')
-              .replace(/hsla|hsl|%|\(|\)/g, '')
-              .split(',');
+      .toLowerCase()
+      .replace(/h|s|l|a|%|\(|\)|:|;|\s/g, '')
+      .split(',');
     if (input.length === 3) {
       if (input[0] < 0 || input[0] > 359) throw new TypeError('Expecting hue to be between 0-359');
       if (input[1] < 0 || input[1] > 100) throw new TypeError('Expecting saturation to be between 0-100');
@@ -110,9 +110,9 @@ colorConverter.prototype = {
   cleanHsla(rawInput, { returnArray = false } = {}) {
     let input = Array.isArray(rawInput) ? rawInput.toString() : rawInput;
     input = input
-              .replace(/\s/g, '')
-              .replace(/hsla|hsl|%|\(|\)/g, '')
-              .split(',');
+      .toLowerCase()
+      .replace(/h|s|l|a|%|\(|\)|:|;|\s/g, '')
+      .split(',');
     if (input.length === 4) {
       if (input[0] < 0 || input[0] > 359) throw new TypeError('Expecting hue to be between 0-359');
       if (input[1] < 0 || input[1] > 100) throw new TypeError('Expecting saturation to be between 0-100');
@@ -458,7 +458,7 @@ colorConverter.prototype = {
   identifyString(rawInput) {
     const typeofInput = typeof rawInput;
     if (typeofInput !== 'string') throw new TypeError(`identifyString() expects a string. ${typeofInput} given instead.`);
-    const string = rawInput.replace(' ', '');
+    const string = rawInput.replace(/\s/g, '').toLowerCase();
     const parts = string.replace(/\(|\)/g, '').split(',');
     if (string.indexOf('rgba') !== -1 && parts.length === 4) return 'rgba';
     if (string.indexOf('rgb') !== -1 && parts.length === 3) return 'rgb';
@@ -498,4 +498,4 @@ colorConverter.prototype = {
   },
 };
 
-module.exports = new colorConverter();
+module.exports = new ColorConverter();

@@ -13,4 +13,7 @@ describe('cleanHsl', () => {
   it('should return an array from an hsla() string when specified', () => {
     expect(converter.cleanHsl('hsl( 120, 23.4%, 12.3%)', { returnArray: true })).to.deep.equal([120, 23.4, 12.3]);
   });
+  it('should remove leading white space, capital letters, semicolons and colons', () => {
+    expect(converter.cleanHsl(' HSl( 120, 23.4%, 12.3%); ')).to.equal('hsl(120, 23.4%, 12.3%)');
+  });
 });
